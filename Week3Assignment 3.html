@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+    function removeAnimal(){
+        var x=document.getElementById("animalSelect");
+        x.remove(x.selectedIndex);
+    }
+    var counter =0;
+    function counterFunc(){
+        counter = counter +1;
+        document.getElementById("counter").innerHTML = counter;
+    }
+    function changeBGC(color){
+        document.bgColor = color;
+    }
+    function ChangeFont(fontFamily){
+        document.getElementById("para").style.fontFamily = fontFamily;
+    }
+    var italic_Items;
+    window.onload = getItalic_items();
+    function getItalic_items(){
+    italic_Items = document.getElementsByTagName('em'); 
+    } 
+    function highlight() 
+    {
+   for (var i=0; i<italic_Items.length; i++)
+   {                                                    
+    italic_Items[i].style.color = "pink";
+    }
+    }
+    function return_normal()
+    {
+    for (var i=0; i<italic_Items.length; i++) 
+    {
+       italic_Items[i].style.color = "black";
+    }
+    }
+</script>
+<title>Week3Assignment</title>
+</head>
+
+<body>
+    <form>
+        <select id="animalSelect">
+            <option>Octopus</option>
+            <option>Squid</option>
+            <option>Whale</option>
+            <option>Cat</option>
+        </select>
+        <input type="button" onclick="removeAnimal()" value="Select the Non-Ocean Animal to remove">
+    </form>
+    <div>Count: </div>
+    <div id="counter">0</div>
+    <button onclick="counterFunc()">Click to Increase</button>
+    <br>
+    <a href="#" onClick="javascript:changeBGC('red')">Red</a>
+    <br>
+    <a href="#" onClick="javascript:changeBGC('green')">Green</a>
+    <br>
+    <a href="#" onClick="javascript:changeBGC('aqua')">Aqua</a>
+    <br>
+    <a href="#" onClick="javascript:changeFontFamily('Arial, sans-serif')"> Make it SansSerif</a>
+    <br>
+    <a href="#" onClick="changeFontFamily('serif')"> Make it Serif</a>
+    <p id="para"> Some text to try your changes!</p>
+    <br>
+    <p>[<a href="#" onMouseOver="highlight()" onMouseOut="return_normal()"></a>]Try mousing over the italic items!</p> 
+<p><em>Hello!</em> I am <em>Michelle!</em> </p>
+</body>
+</html>
